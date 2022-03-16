@@ -9,12 +9,8 @@ public class Main
 		l1.add(3);
 		l1.add(4);
 		l1.add(5);
-		l1.start();
-		l1.next();
-		l1.next();
-		l1.remove();
+		l1.find(5);
 		System.out.println(l1.get());
 		System.out.println(l1.lastCurrentNode.getValue());
-		System.out.println(l1.tail.getValue());
 	}
 }

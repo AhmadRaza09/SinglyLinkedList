@@ -12,7 +12,7 @@ public class SinglyLinkedList
 	
 	/** store the reference of the previous node with respect to the current
 	node in the chain if there is only one node in the chain then store the reference of the current node**/
-	private Node lastCurrentNode;
+	public Node lastCurrentNode;
 	private int size;  //store the size of the chain
 	
 	
@@ -70,8 +70,10 @@ public class SinglyLinkedList
 	//remove the current node from the chain
 	public void remove()
 	{
+			//if list is empty then nothing to do
 			if(current != null)
 			{
+				//if size is 1 then is mean only one nonde in chain so set all refrences to null
 				if(size == 1)
 				{
 					current = null;
@@ -81,13 +83,18 @@ public class SinglyLinkedList
 				}
 				else
 				{
+					//if the removal of the current node is the last element of chain then tail refrence also need to be changed
 					if(current.getNext() == null)
 					{
 						tail = lastCurrentNode;
 					}
+					
+					//remove the current node
 					lastCurrentNode.setNext(current.getNext());
 					current = lastCurrentNode;
 					
+					
+					//change the refrence of the lastCurrentNode
 					Node temp = lastCurrentNode;
 					temp = head;
 					while(temp != lastCurrentNode)
@@ -96,8 +103,32 @@ public class SinglyLinkedList
 					}
 					
 				}
+				
+				//decrease chain size;
 				size = size - 1;
 			}
+	}
+	
+	public boolean find(int findValue)
+	{
+		Node temp = head;
+		Node tempPrev = head;
+		for(int i = 1; i <= size - 1; i++)
+		{
+			
+			if(temp.getValue() == findValue)
+			{
+				lastCurrentNode = tempPrev;
+				current = temp;
+				return true;
+			
+			}
+			tempPrev = temp;
+			temp = temp.getNext();
+		}
+		
+		return false;	
+		
 	}
 	
 	//update the value on which current node refer
