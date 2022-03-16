@@ -109,10 +109,14 @@ public class SinglyLinkedList
 			}
 	}
 	
+	
+	//find the value if find then point current to that node
 	public boolean find(int findValue)
 	{
+		//for set current and lastCurrentNode
 		Node temp = head;
 		Node tempPrev = head;
+		
 		for(int i = 1; i <= size - 1; i++)
 		{
 			
@@ -196,5 +200,47 @@ public class SinglyLinkedList
 	}
 	
 	
+	//point the current to the head
+	public void tail()
+	{
+		current = tail;
+		
+		//change lastCurrentNode
+		lastCurrentNode = head;
+		
+		for(int i = 1; i < size - 1; i++)
+		{
+			if(lastCurrentNode.getNext() != current)
+			{
+				lastCurrentNode = lastCurrentNode.getNext();
+			}
+			else
+			{
+				return;
+			}
+		}
+			
+		
+	}
 	
+	public void back()
+	{
+		current = lastCurrentNode;
+		
+		//change lastCurrentNode
+		lastCurrentNode = head;
+		
+		for(int i = 1; i < size - 1; i++)
+		{
+			if(lastCurrentNode.getNext() != current)
+			{
+				lastCurrentNode = lastCurrentNode.getNext();
+			}
+			else
+			{
+				return;
+			}
+		}
+		
+	}
 }
