@@ -67,6 +67,40 @@ public class SinglyLinkedList
 		
 	}
 	
+	//remove the current node from the chain
+	public void remove()
+	{
+			if(current != null)
+			{
+				if(size == 1)
+				{
+					current = null;
+					head = null;
+					tail = null;
+					lastCurrentNode = null;
+				}
+				else
+				{
+					if(current.getNext() == null)
+					{
+						tail = lastCurrentNode;
+					}
+					lastCurrentNode.setNext(current.getNext());
+					current = lastCurrentNode;
+					
+					Node temp = lastCurrentNode;
+					temp = head;
+					while(temp != lastCurrentNode)
+					{
+						lastCurrentNode = temp;
+					}
+					
+				}
+				size = size - 1;
+			}
+	}
+	
+	//update the value on which current node refer
 	public void update(int updateValue)
 	{
 		if(current != null)
