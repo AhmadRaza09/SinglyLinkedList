@@ -12,7 +12,7 @@ public class SinglyLinkedList
 	
 	/** store the reference of the previous node with respect to the current
 	node in the chain if there is only one node in the chain then store the reference of the current node**/
-	public Node lastCurrentNode;
+	private Node lastCurrentNode;
 	private int size;  //store the size of the chain
 	
 	
