@@ -87,20 +87,38 @@ public class SinglyLinkedList
 					if(current.getNext() == null)
 					{
 						tail = lastCurrentNode;
+						
 					}
 					
 					//remove the current node
-					lastCurrentNode.setNext(current.getNext());
-					current = lastCurrentNode;
-					
-					
-					//change the refrence of the lastCurrentNode
-					Node temp = lastCurrentNode;
-					temp = head;
-					while(temp != lastCurrentNode)
+				
+					//if the current node is first node
+					if(current == lastCurrentNode)
 					{
-						lastCurrentNode = temp;
+						current = current.getNext();
+						lastCurrentNode = current;
+						head = current;
+						
 					}
+					else
+					{
+						
+						lastCurrentNode.setNext(current.getNext());
+						current = lastCurrentNode;
+						
+						//change the refrence of the lastCurrentNode
+						Node temp = head;
+						Node prev = head;
+						
+						while(temp != lastCurrentNode)
+						{
+							prev = temp;
+							temp = temp.getNext();
+						}
+						lastCurrentNode = prev;
+						
+					}
+					
 					
 				}
 				
