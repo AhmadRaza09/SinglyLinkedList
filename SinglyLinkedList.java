@@ -249,16 +249,19 @@ public class SinglyLinkedList
 		current = lastCurrentNode;
 		
 		//change lastCurrentNode
+		Node temp = head;
 		lastCurrentNode = head;
 		
 		for(int i = 1; i < size - 1; i++)
 		{
-			if(lastCurrentNode.getNext() != current)
+			if(lastCurrentNode != current)
 			{
+				temp = lastCurrentNode;
 				lastCurrentNode = lastCurrentNode.getNext();
 			}
 			else
 			{
+				lastCurrentNode = temp;
 				return;
 			}
 		}
