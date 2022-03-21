@@ -218,22 +218,25 @@ public class SinglyLinkedList
 	}
 	
 	
-	//point the current to the head
+	//point the current to the tail
 	public void tail()
 	{
 		current = tail;
 		
 		//change lastCurrentNode
+		Node temp = head;
 		lastCurrentNode = head;
 		
 		for(int i = 1; i < size - 1; i++)
 		{
-			if(lastCurrentNode.getNext() != current)
+			if(lastCurrentNode != current)
 			{
+				temp = lastCurrentNode;
 				lastCurrentNode = lastCurrentNode.getNext();
 			}
 			else
 			{
+				lastCurrentNode = temp;
 				return;
 			}
 		}
