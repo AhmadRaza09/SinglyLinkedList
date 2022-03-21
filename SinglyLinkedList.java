@@ -227,7 +227,7 @@ public class SinglyLinkedList
 		Node temp = head;
 		lastCurrentNode = head;
 		
-		for(int i = 1; i < size - 1; i++)
+		for(int i = 1; i <= size - 1; i++)
 		{
 			if(lastCurrentNode != current)
 			{
@@ -252,7 +252,7 @@ public class SinglyLinkedList
 		Node temp = head;
 		lastCurrentNode = head;
 		
-		for(int i = 1; i < size - 1; i++)
+		for(int i = 1; i <= size - 1; i++)
 		{
 			if(lastCurrentNode != current)
 			{
